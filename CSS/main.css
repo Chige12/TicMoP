@@ -17,6 +17,7 @@ body {
     color: black;
     transition: all 0.2s 0s ease-in-out;
     opacity: 0;
+    z-index: 2;
 }
 
 .control_menu:hover {
@@ -29,19 +30,18 @@ body {
     padding: 3px 10px;
     border: none;
 }
-
-video {
-    margin: auto;
+.video_wrapper {
     background: black;
+    position: relative;
+    width: 100vw;
     height: 100vh;
-    top: 50%;
-    /* 上から半分 */
-    left: 50%;
-    /* 左から半分 */
-    /* 要素の大きさの半分引く（CSS3） */
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    z-index: -1;
+}
+video {
+  -o-object-fit: contain;
+  object-fit: contain;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
 }
