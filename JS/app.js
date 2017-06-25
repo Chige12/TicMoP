@@ -20,6 +20,15 @@ function playVideo() {
 	}, false);
 }
 
+console.log(v.paused);
+v.onKeyDown = function(){
+  if(v.paused){
+		v.play();
+	}else{
+		v.pause();
+	}
+}
+
 function pauseVideo() {
 	//動画を一時停止
 	v.pause();
@@ -37,14 +46,17 @@ function lower_bound(arr, n) {
     }
     return arr[first];
 };
-
-v.onplay = function() {
-    var currentTime = v.currentTime + 0.02;
-    var nextStopTime = lower_bound(stopTimes, currentTime);
-    if (nextStopTime){
-      setTimeout(function() { v.pause(); }, (nextStopTime-v.currentTime)*1000);
-    }
-}
+var autostop = function() {
+		var currentTime = v.currentTime + 0.02; //現在の時間
+	  var nextStopTime = lower_bound(stopTimes, currentTime); //次に止まる時間
+			if (nextStopTime){
+			  setTimeout(function() { v.pause(); }, (nextStopTime-v.currentTime)*1000); //次に止まる時間まで予約
+		  }
+		//  if (currentTime < nextStopTime) {
+				//v.currentTime = nextStopTime + 0.02;
+			//}
+		}
+v.onplay = autostop;
 
 function upVolume() {
 	//音量を上げる
