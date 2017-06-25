@@ -1,7 +1,7 @@
 var v = document.getElementById("video");
 var stopTimes = [1.6, 6, 9.8, 13.5, 18, 21.2, 23, 27.8, 33, 35, 40];
 
-//[9.4, 10.2, 13.7, 15.1, 17.7, 18.6, 59.0, 60.7, 62.7, 67.3, 67.6, 70.7, 77.3, 71.4]
+//[9.4, 10.2, 13.7, 15.1, 17.7, 18.6, 59.0, 60.7, 62.7, 67.3, 67.6, 70.7, 77.3, 82.4]
 
 v.addEventListener("timeupdate", function () {
 	document.getElementById("ichi").innerHTML = v.currentTime;
@@ -15,6 +15,7 @@ function getDuration() {
 	document.getElementById("nagasa").innerHTML = v.duration;
 }
 
+
 function playVideo() {
 	// 動画を再生する
 	document.getElementById("kanryou").innerHTML = "";
@@ -24,37 +25,45 @@ function playVideo() {
 function pauseVideo() {
 	//動画を一時停止
 	v.pause();
+	console.log("pause");
 }
 
 var timeout_id = null;
 
 function autoStopVideo () { //自動で動画を停止
 	var currentTime = v.currentTime + 0.02; //現在の時間
-	var nextStopTime = lower_bound(stopTimes, currentTime); //次に止まる時間
+	var nextStopTime = stopTimes[lower_bound(stopTimes, currentTime)]; //次に止まる時間
 	if (nextStopTime) {
-		timeout_id = setTimeout(function () { v.pause(); }, (nextStopTime - v.currentTime) * 1000); //次に止まる時間まで予約
+		timeout_id = setTimeout(function () { v.pause(); console.log("pause1"); }, (nextStopTime - v.currentTime) * 1000); //次に止まる時間を予約
+		console.log("setTimeout");
 	}
 }
 function autoJampVideo() { //動画再生中に次の場所へジャンプ
-	var currentTime = v.currentTime; //現在の時間
-	var nextStopTime = lower_bound(stopTimes, currentTime); //次に止まる時間
+	var currentTime = v.currentTime + 0.02; //現在の時間
+	var nextStopTime = stopTimes[lower_bound(stopTimes, currentTime)]; //次に止まる時間
 	if (currentTime < nextStopTime) {
-		v.currentTime = nextStopTime + 0.02;
 		if(timeout_id !== null){
 			clearTimeout(timeout_id); //次に止まる時間をキャンセル
 			timeout_id = null;
 		}
+		v.currentTime = nextStopTime + 0.04; //止まる時間までジャンプ
+		var nextStopTime = stopTimes[lower_bound(stopTimes, currentTime) + 1];
+		if (nextStopTime) {
+			timeout_id = setTimeout(function () { v.pause(); console.log("pause2");}, (nextStopTime - v.currentTime + 0.1) * 1000); //次の次に止まる時間を予約
+		}
+		console.log("autoJamp");
 	}
+
 }
 
-function lower_bound(arr, n) { //現在時間nを取得して次に止まる時間を返す。
+function lower_bound(arr, n) { //現在時間nを取得して次に止まる時間の配列番号を返す。
 	var first = 0, last = arr.length - 1, middle;
 	while (first <= last) {
 		middle = 0 | (first + last) / 2;
 		if (arr[middle] < n) first = middle + 1;
 		else last = middle - 1;
 	}
-	return arr[first];
+	return first;
 };
 
 function upVolume() {
@@ -76,7 +85,6 @@ window.onkeydown = function(e) {  //keyboardのイベント取得
 		}
 		else {
 			autoJampVideo();
-			console.log("autoJamp");
 		}
 	}
 	else if (keyCode == 8 || keyCode == 37){ //BackSpace or Left 前に戻る
@@ -88,7 +96,6 @@ window.onkeydown = function(e) {  //keyboardのイベント取得
 		}
 		else {
 			pauseVideo();
-			console.log("pause");
 		}
 	}
 	else {
