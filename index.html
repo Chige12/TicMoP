@@ -5,21 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>TicMoP</title>
   <meta name="description" content="Time controled Motion Presentation Application">
-  <link rel="stylesheet" href="CSS/reset.css">
-  <link rel="stylesheet" href="CSS/main.css">
+  <!-- <link rel="stylesheet" href="CSS/reset.css"> -->
+  <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
-  <div class="wrapper">
-  <div class="control_menu">
-    <input class="button" type="button" value="再生" onClick="playVideo()">
-    <input class="button" type="button" value="一時停止" onClick="pauseVideo()">
-      現在（秒）：<span id="ichi">0</span>
-      全体（秒）：<span id="nagasa"></span>
-    <span id="kanryou"></span>
-  </div>
-  <div class="video_wrapper" id="video_wrapper">
-    <video id="video" src="video/color-slide2.mp4"></video>
-  </div>
-  <script src="JS/app.js"></script>
+  <h1>TicMop</h1>
+  <p>Time controled Motion Presentation、略してモーションプレゼンするやつ。突貫工事でとても雑。</p>
+  <h2>使い方</h2>
+  <p>スペースキーで再生/停止</p>
+  <p>エンターキーでもできるけど、スペースキーとの違いは、動画再生中に押すと次の停止ポイントまで飛ぶ。
+    ただ、雑コードなのでバグがでる。また今度直します～～</p>
+  <h2>リンク</h2>
+  <p><a href="Mconf_VideoSlide2017.html">舞鶴カンファ　動画制作の話</a></p>
+  <h2>つくったひと</h2>
+  <p><a href="https://chige12.github.io/index.html">ちげ</a>　Twitter:@Technictige</p>
 </body>
 </html>

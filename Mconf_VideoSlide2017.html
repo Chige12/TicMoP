@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>動画制作の話-TicMoP</title>
+  <meta name="description" content="Time controled Motion Presentation Application">
+  <link rel="stylesheet" href="CSS/reset.css">
+  <link rel="stylesheet" href="CSS/main.css">
+</head>
+<body>
+  <div class="wrapper">
+  <div class="control_menu">
+    <input class="button" type="button" value="再生" onClick="playVideo()">
+    <input class="button" type="button" value="一時停止" onClick="pauseVideo()">
+      現在（秒）：<span id="ichi">0</span>
+      全体（秒）：<span id="nagasa"></span>
+    <span id="kanryou"></span>
+  </div>
+  <div class="video_wrapper" id="video_wrapper">
+    <video id="video" src="video/k-conf-LT-slide.mp4"></video>
+  </div>
+  <script src="JS/app.js"></script>
+</body>
+</html>

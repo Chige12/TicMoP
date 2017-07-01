@@ -1,7 +1,12 @@
 var v = document.getElementById("video");
-var stopTimes = [1.6, 6, 9.8, 13.5, 18, 21.2, 23, 27.8, 33, 35, 40];
+var m = 60, m2 = 120, m3 = 180;
+var stopTimes = [9.4, 10.2, 13.7, 15.1, 17.7, 20.15, 60.45, 62.2, 64.16, 68.7,//title
+m+9, m+12.2, m2+6.2, m2+6.5, m2+8.45, m2+15.1, m2+20.2,
+m2+20.5, m2+21.15, m2+21.7, m2+22.3, m2+22.83, m2+23.48, m2+24,//いいことあるの？
+m2+24.23, m2+26.1, m2+26.76, m2+26.96, m2+27.13, m2+28.1, m2+28.55, m2+30.26, m2+32.4,m2+32.63,
+m2+40.63, m2+40.9, m2+41.13, m2+54.3, m3+3.4, m3+19.3, m3+20.6, m3+21.9, m3+22.8, m3+23.7];
 
-//[9.4, 10.2, 13.7, 15.1, 17.7, 18.6, 59.0, 60.7, 62.7, 67.3, 67.6, 70.7, 77.3, 82.4]
+//color-slide2.mp4--[1.6, 6, 9.8, 13.5, 18, 21.2, 23, 27.8, 33, 35, 40]
 
 v.addEventListener("timeupdate", function () {
 	document.getElementById("ichi").innerHTML = v.currentTime;
@@ -68,11 +73,11 @@ function lower_bound(arr, n) { //現在時間nを取得して次に止まる時�
 
 function upVolume() {
 	//音量を上げる
-	v.volume = v.volume + 0.25;
+	v.volume = v.volume + 0.20;
 }
 function downVolume() {
 	//音量を下げる
-	v.volume = v.volume - 0.25;
+	v.volume = v.volume - 0.20;
 }
 
 console.log(v.readyState);
@@ -98,6 +103,8 @@ window.onkeydown = function(e) {  //keyboardのイベント取得
 			pauseVideo();
 		}
 	}
+	else if (keyCode == 38){upVolume();}
+	else if (keyCode == 40){downVolume();}
 	else {
 		console.log(v.paused);
 		console.log(keyCode);
