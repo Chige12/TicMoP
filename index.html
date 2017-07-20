@@ -5,19 +5,51 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>TicMoP</title>
   <meta name="description" content="Time controled Motion Presentation Application">
-  <!-- <link rel="stylesheet" href="CSS/reset.css"> -->
+  <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/index.css">
 </head>
-<body>
-  <h1>TicMop</h1>
-  <p>Time controled Motion Presentation、略してモーションプレゼンするやつ。突貫工事でとても雑。</p>
-  <h2>使い方</h2>
-  <p>スペースキーで再生/停止</p>
-  <p>エンターキーでもできるけど、スペースキーとの違いは、動画再生中に押すと次の停止ポイントまで飛ぶ。
-    ただ、雑コードなのでバグがでる。また今度直します～～</p>
-  <h2>リンク</h2>
-  <p><a href="Mconf_VideoSlide2017.html">舞鶴カンファ　動画制作の話</a></p>
-  <h2>つくったひと</h2>
-  <p><a href="https://chige12.github.io/index.html">ちげ</a>　Twitter:@Technictige</p>
+<body id="root">
+  <header class="container header">
+    <h1 class="title-text">TicMop</h1>
+    <p class="title-sub-text">Time controled Motion Presentation</p>
+    <button type="button" name="button" onclick="location.href='Mconf_VideoSlide2017.html'"value="DEMO">DEMO</button>
+  </header>
+
+  <section class="container about-this">
+    <h2>About TicMoP</h2>
+    <p>モーションプレゼンをするための再生アプリ。突貫工事でとても雑。今後随時アップデート予定。</p>
+    <p>モーションプレゼンとは、動画の再生によってプレゼンする新しいプレゼンの方法。</p>
+  </section>
+
+  <section class="container how-to-use">
+    <h2>How to Use</h2>
+    <p>スペースキーで再生/停止</p>
+    <p>エンターキーでも可能。スペースキーとの違いは、動画再生中に押すと次の停止ポイントまで飛ぶ。
+      ※ただ、まだ雑コードなのでバグがでます。</p>
+  </section>
+
+  <section class="container demo">
+    <h2>Demo</h2>
+    <ul>
+      <li><a href="Mconf_VideoSlide2017.html">舞鶴カンファ　動画制作の話</a></li>
+    </ul>
+  </section>
+
+  <section class="container vision">
+    <h2>Vision</h2>
+    <p>今後、開発を予定している機能</p>
+    <ul>
+      <li>ループ機能</li>
+      <li>再生ルートの分岐機能</li>
+      <li>重要文ポップアップ機能</li>
+      <li>ショートカット機能</li>
+    </ul>
+  </section>
+
+  <footer class="container">
+    <h2>つくったひと</h2>
+    <p><a href="https://chige12.github.io/index.html">ちげ</a>
+     　<a href="https://twitter.com/technictige">Twitter: @Technictige</a></p>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,86 @@
+html{
+    width: 100%;
+    font-size: 62.5%;
+}
+
+#root {
+    --white:        #FFFFFF;
+    --light-gray:   #dddddd;
+    --pale-gray:    #eaeaea;
+    --dark-green:   #5a5f41;
+    --accent:       #4794bf;
+    --black:        rgba(0, 0, 0, 0.70);
+    --main-text:    #000000;
+  }
+
+body {
+    margin: 0;
+    background: var(--light-gray); /*footerと同色*/
+  }
+
+.container {
+    width: 60vw;
+    padding: 3.5vh 20vw;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+  a {
+    cursor: pointer;
+    position: relative;
+  	transition: .5s;
+  }
+  a::after {
+  	position: absolute;
+  	bottom: 0;
+  	left: 0;
+  	content: '';
+  	width: 0;
+  	height: 2px;
+  	background-color: cadetblue;
+  	transition: .5s;
+    z-index: 0;
+  }
+  a:hover::after {
+  	width: 100%;
+  }
+  a:link {color: var(--main-text); text-decoration: none; }
+  a:visited { color: var(--main-text); text-decoration: none; }
+
+header {
+  height: 200px;
+  padding-top: 50px;
+  background-color: cadetblue;
+}
+.title-text {
+  font-size: 4rem;
+  padding: 40px 0 10px;
+}
+.title-sub-text {
+  font-size: 2rem;
+  padding: 0 0 5px 3px;
+}
+.sub-text {
+  font-size: 1.5rem;
+  padding: 25px 0 20px 4px;
+}
+h2 {
+  padding: 10px 0px;
+  font-size: 2rem;
+}
+
+button {
+  margin-left: calc(60vw - 250px);
+  width: 100px;
+  height: 40px;
+  background-color: #dddddd;
+  text-align: center;
+  border-style: none;
+  transition: background-color 0.2s 0s ease-in-out;
+}
+button:hover {
+  background-color: #bbbbbb;
+}
+ul {
+  padding-top: 10px;
+  padding-left: 30px;
+}
